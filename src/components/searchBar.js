@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   state = {
-    searchBarValue: '',
     searchTerm: ''
+  };
+
+  onChange = e => {
+    this.setState({
+      searchTerm: e.target.value
+    });
   };
 
   render() {
@@ -16,6 +21,8 @@ class SearchBar extends Component {
             id="search-input"
             placeholder="Enter a city..."
             aria-describedby="cityHelp"
+            value={this.state.searchTerm}
+            onChange={this.onChange}
           />
           <small id="cityHelp" className="form-text text-muted">
             for example, London
