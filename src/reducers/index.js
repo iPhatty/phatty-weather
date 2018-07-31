@@ -1,3 +1,7 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+import currentWeather from './currentWeather';
+
+export default combineReducers({
+  currentWeather
+});
