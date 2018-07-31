@@ -1,1 +1,1 @@
-import {} from './types';
+import { FETCH_CURRENT_WEATHER } from './types';
