@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class SearchBar extends Component {
   state = {
@@ -11,9 +13,18 @@ class SearchBar extends Component {
     });
   };
 
+  onSubmit = e => {
+    console.log('search!');
+    e.preventDefault();
+    this.props.fetchCurrent(this.state.searchTerm);
+    this.setState({
+      searchTerm: ''
+    });
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <input
             type="text"
@@ -28,7 +39,7 @@ class SearchBar extends Component {
             for example, London
           </small>
         </div>
-        <button type="button" className="btn btn-info">
+        <button type="submit" className="btn btn-info">
           Search
         </button>
       </form>
@@ -36,4 +47,7 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default connect(
+  null,
+  actions
+)(SearchBar);

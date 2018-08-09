@@ -3,7 +3,7 @@ import { FETCH_CURRENT_WEATHER } from '../actions/types';
 export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_CURRENT_WEATHER:
-      return action.payload;
+      return action.payload.data;
     default:
       return state;
   }
