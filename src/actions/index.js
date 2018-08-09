@@ -6,7 +6,7 @@ export function fetchCurrent(city) {
   console.log(keys.API_KEY);
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
     keys.API_KEY
-  }`;
+  }&units=metric`;
   console.log(url);
   const response = axios.get(url);
   return {
