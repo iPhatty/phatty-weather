@@ -5,4 +5,10 @@ const SearchResult = props => {
   return <div>Search Result</div>;
 };
 
-export default SearchResult;
+function mapStateToProps(state) {
+  return {
+    currentWeather: state.currentWeather
+  };
+}
+
+export default connect(mapStateToProps)(SearchResult);
