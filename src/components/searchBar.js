@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import '../styling/searchBar.css';
+
 class SearchBar extends Component {
   state = {
     searchTerm: ''
@@ -14,7 +16,6 @@ class SearchBar extends Component {
   };
 
   onSubmit = e => {
-    console.log('search!');
     e.preventDefault();
     this.props.fetchCurrent(this.state.searchTerm);
     this.setState({
@@ -24,17 +25,18 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="form-container" onSubmit={this.onSubmit}>
         <input
           type="text"
-          id="search-input"
+          className="form-input"
           placeholder="Enter a city"
-          aria-describedby="cityHelp"
           value={this.state.searchTerm}
           onChange={this.onChange}
           required
         />
-        <button type="submit">Search</button>
+        <button className="form-btn" type="submit">
+          Search
+        </button>
       </form>
     );
   }
