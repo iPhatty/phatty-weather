@@ -4,6 +4,8 @@ import * as actions from '../actions';
 
 import '../styling/searchBar.css';
 
+import SearchResult from './searchResult';
+
 class SearchBar extends Component {
   state = {
     searchTerm: ''
@@ -25,24 +27,35 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form className="form-container" onSubmit={this.onSubmit}>
-        <input
-          type="text"
-          className="form-input"
-          placeholder="Enter a city"
-          value={this.state.searchTerm}
-          onChange={this.onChange}
-          required
-        />
-        <button className="form-btn" type="submit">
-          Search
-        </button>
-      </form>
+      <div>
+        <form className="form-container" onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            className="form-input"
+            placeholder="Enter a city"
+            value={this.state.searchTerm}
+            onChange={this.onChange}
+            required
+          />
+          <button className="form-btn" type="submit">
+            Search
+          </button>
+        </form>
+        {this.props.currentWeather && (
+          <SearchResult currentWeather={this.props.currentWeather} />
+        )}
+      </div>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    currentWeather: state.currentWeather
+  };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(SearchBar);
