@@ -1,0 +1,27 @@
+.form-container {
+}
+
+.form-input {
+  height: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #ff4757;
+  background: transparent;
+  outline-color: #ff4757;
+  outline-offset: 1px;
+  color: inherit;
+}
+
+.form-btn {
+  height: 1.5rem;
+  margin-left: 1rem;
+  border: 1px solid #ff4757;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  transition: background 0.5s;
+}
+
+.form-btn:hover {
+  background: #ff4757;
+  cursor: pointer;
+}
