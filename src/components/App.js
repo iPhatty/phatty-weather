@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import '../styling/App.css';
 
 import SearchBar from './searchBar';
@@ -10,10 +10,18 @@ class App extends Component {
     return (
       <div className="app-container">
         <SearchBar />
-        <SearchResult />
+        {this.props.currentWeather && (
+          <SearchResult currentWeather={this.props.currentWeather} />
+        )}
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    currentWeather: state.currentWeather
+  };
+}
+
+export default connect(mapStateToProps)(App);

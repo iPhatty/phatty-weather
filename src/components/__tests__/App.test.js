@@ -1,21 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
+import Root from '../../Root';
 import App from '../App';
 import SearchBar from '../searchBar';
-import SearchResult from '../searchResult';
 
 let wrapped;
 beforeEach(() => {
-  wrapped = shallow(<App />);
+  wrapped = mount(
+    <Root>
+      <App />
+    </Root>
+  );
 });
 
 it('shows a search bar', () => {
   // There is one SearchBar component in the app component
   expect(wrapped.find(SearchBar).length).toEqual(1);
-});
-
-it('shows a search result', () => {
-  // There is one SearchResult component in the app component
-  expect(wrapped.find(SearchResult).length).toEqual(1);
 });
