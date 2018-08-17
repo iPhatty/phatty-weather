@@ -9,6 +9,7 @@ Clone the repo:
 ```
 git clone https://github.com/iPhatty/phatty-weather.git
 ```
+Make sure you sign up for a free API key at [openweathermap](https://openweathermap.org/).
 
 Create a config folder in src/, and then create a keys.js file in src/config with the following:
 
