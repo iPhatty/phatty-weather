@@ -44,13 +44,7 @@ class SearchBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    currentWeather: state.currentWeather
-  };
-}
-
 export default connect(
-  mapStateToProps,
+  null,
   actions
 )(SearchBar);
