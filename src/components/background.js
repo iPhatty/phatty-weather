@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 
 class Background extends Component {
-  backgroundStyle = {
-    backgroundImage: `url(${this.props.weatherId})`
-  };
   render() {
-    return <div className="background-container">{this.props.children}</div>;
+    let backgroundStyle;
+    if (this.props.weatherId) {
+      backgroundStyle = {
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/public/img/${
+          this.props.weatherId.toString()[0]
+        }.jpg)`
+      };
+    }
+    return (
+      <div style={backgroundStyle} className="background-container">
+        {this.props.children}
+      </div>
+    );
   }
 }
 
